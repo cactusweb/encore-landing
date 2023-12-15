@@ -11,7 +11,10 @@ header {
 }
 
 main {
-  @apply tw-grid tw-gap-36 md:tw-gap-[120px];
+  @apply tw-grid tw-gap-16 md:tw-gap-10;
   @include PaddingX();
-  grid-template-rows: 82vh auto auto;
+
+  > * {
+    @apply tw-mb-20 first:tw-mb-0 last:tw-mb-0;
+  }
 }

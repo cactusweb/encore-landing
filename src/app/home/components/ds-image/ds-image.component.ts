@@ -17,7 +17,7 @@ import {
       <img
         src="/assets/home/main.png"
         alt="Encore has discord server for support"
-        [style.width]="imgWidth"
+        [style.transform]="'scale(' + imgWidth + ')'"
         #img
       />
     </section>
@@ -28,7 +28,7 @@ import {
         @apply tw-grid tw-justify-items-center;
       }
       img {
-        @apply tw-relative tw-bottom-[13vh];
+        @apply tw-relative tw-bottom-[13vh] tw-w-[80%] tw-origin-bottom;
         transition: 0.1s;
       }
     `,
@@ -41,25 +41,27 @@ export class DsImageComponent implements AfterViewInit {
   @ViewChild('img')
   img!: ElementRef<HTMLImageElement>;
 
-  readonly minwidth = 80;
-  readonly maxWidth = 95;
+  readonly minScale = 1;
+  readonly maxScale = 1.15;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   get imgWidth() {
     const boundingRect = this.img?.nativeElement.getBoundingClientRect();
 
-    if (!boundingRect) {
-      return this.minwidth;
+    if (!boundingRect || window.scrollY < 70) {
+      return this.minScale;
     }
 
-    let width!: number;
-    if (boundingRect.top < 90) {
-      width = this.maxWidth;
+    let scale!: number;
+    if (boundingRect.top < 170) {
+      scale = this.maxScale;
     } else if (boundingRect.top > 0) {
-      width = this.maxWidth - boundingRect.top / 70;
+      scale =
+        this.minScale +
+        (this.maxScale - this.minScale) / (boundingRect.top / 170);
     }
-    return (width < this.minwidth ? this.minwidth : width) + '%';
+    return scale < this.minScale ? this.minScale : scale;
   }
 
   @HostListener('window:scroll', ['$event'])
