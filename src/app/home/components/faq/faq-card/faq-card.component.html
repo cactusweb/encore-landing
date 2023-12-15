@@ -1,0 +1,19 @@
+<div class="card" (click)="changeState()" aria-label="FAQ point">
+  <div class="card__header">
+    <h4
+      class="card__title"
+      [class.tw-text-primary]="cardState === CardStates.EXPANDED"
+      aria-label="Question"
+    >
+      {{ question }}
+    </h4>
+    <button
+      class="card__btn"
+      [class.card__btn_expanded]="cardState === CardStates.EXPANDED"
+      aria-label="Expand card button"
+    ></button>
+  </div>
+  <p class="card__description" [@CardContent]="cardState" aria-label="Answer">
+    {{ answer }}
+  </p>
+</div>

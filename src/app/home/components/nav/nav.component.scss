@@ -1,0 +1,37 @@
+nav {
+  @apply tw-grid tw-grid-flow-col tw-justify-between tw-items-center tw-relative tw-z-20;
+}
+
+.menu {
+  @apply tw-grid tw-grid-flow-col tw-gap-x-10 tw-gap-y-6 tw-items-center tw-justify-items-end;
+
+  @apply md:tw-absolute tw-bottom-0 md:tw-translate-y-full md:tw-grid-flow-row md:tw-p-5 md:tw-overflow-hidden;
+  @apply md:tw-w-full md:tw-bg-secondary;
+
+  &__link {
+    @apply tw-text-lg tw-leading-none tw-font-normal hover:tw-underline;
+  }
+
+  &__btn {
+    @apply tw-border-[1.5px] tw-border-primary tw-border-solid tw-text-primary;
+    @apply hover:tw-bg-primary hover:tw-text-secondary;
+  }
+}
+
+.backdrop {
+  @apply tw-fixed tw-top-0 tw-left-0 tw-h-screen tw-w-full tw-bg-secondary/80 tw-z-10;
+}
+
+.state-btn {
+  @apply tw-h-8 tw-w-8 md:tw-flex tw-z-10 tw-justify-center tw-items-center tw-relative tw-hidden;
+
+  &__touch {
+    @apply tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2;
+    @apply tw-w-11 tw-h-11 tw-rounded-full;
+    transition: 0.2s;
+  }
+
+  &:hover &__touch {
+    @apply tw-bg-white/10;
+  }
+}

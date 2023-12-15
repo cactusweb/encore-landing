@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./styles/reset";
+
+body {
+  @apply tw-text-white;
+  @apply tw-bg-secondary tw-pb-16;
+}
+
+* {
+  font-family: "Mulish", sans-serif;
+}
+
+.btn {
+  @apply tw-h-[43px] tw-px-8 tw-rounded tw-text-lg tw-font-normal tw-flex tw-items-center tw-justify-center;
+  transition: 0.2s;
+}
+
+.home-block {
+  @apply tw-grid tw-gap-20 md:tw-gap-[60px];
+
+  &__title {
+    @apply tw-text-[32px] md:tw-text-[26px] tw-leading-none tw-font-bold tw-justify-self-center tw-text-white;
+  }
+}

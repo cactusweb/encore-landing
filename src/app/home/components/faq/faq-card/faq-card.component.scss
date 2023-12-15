@@ -1,0 +1,39 @@
+.card {
+  @apply tw-px-4 tw-py-2.5 tw-bg-[#262A2F] tw-rounded-lg tw-content-start tw-cursor-pointer;
+
+  &__header {
+    @apply tw-grid tw-grid-flow-col tw-justify-between tw-items-center;
+  }
+
+  &__title {
+    @apply tw-font-medium tw-text-xl md:tw-text-base tw-leading-none;
+    transition: 0.2s;
+  }
+
+  &__btn {
+    @apply tw-h-10 tw-w-10 tw-rounded tw-bg-[#383D44] hover:tw-bg-[#484F57] tw-text-primary;
+    @apply tw-flex tw-items-center tw-justify-center tw-relative;
+    transition: 0.2s;
+
+    &::after,
+    &::before {
+      @apply tw-w-3 tw-h-0.5 tw-bg-primary;
+      @apply tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2;
+      transition: 0.2s;
+      content: "";
+    }
+
+    &::after {
+      @apply tw-rotate-90;
+    }
+
+    &_expanded::after {
+      @apply tw-rotate-180;
+    }
+  }
+
+  &__description {
+    @apply tw-text-base tw-text-[15px] tw-font-normal tw-leading-none tw-max-w-3xl tw-py-2 md:tw-pt-4;
+    @apply tw-overflow-hidden;
+  }
+}

@@ -1,0 +1,19 @@
+:host {
+  @apply tw-grid tw-gap-10 tw-justify-items-center;
+}
+
+.text-container {
+  @apply tw-grid tw-gap-6 tw-text-center tw-max-w-[900px] tw-justify-items-center;
+}
+
+.title {
+  @apply tw-text-[40px] md:tw-text-[28px] tw-leading-none tw-font-bold;
+}
+
+.subtitle {
+  @apply tw-text-base md:tw-text-sm tw-leading-none tw-font-normal tw-max-w-[640px];
+}
+
+.btn-purchase {
+  @apply tw-bg-primary tw-text-secondary tw-w-60 hover:tw-bg-primary-hover;
+}

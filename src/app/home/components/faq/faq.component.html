@@ -1,0 +1,11 @@
+<section class="home-block">
+  <h3 class="home-block__title">FAQ</h3>
+
+  <div class="container">
+    <enc-faq-card
+      *ngFor="let faq of FAQS; trackByProperty"
+      [question]="faq.question"
+      [answer]="faq.answer"
+    />
+  </div>
+</section>

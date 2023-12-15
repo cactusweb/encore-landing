@@ -1,0 +1,65 @@
+<nav>
+  <img src="/assets/logo.svg" alt="Encore" class="tw-h-8" />
+
+  <button
+    aria-label="Expand navbar menu button"
+    class="state-btn"
+    (click)="changeState()"
+  >
+    <ng-container
+      *ngTemplateOutlet="_state === MenuStates.COLLAPSED ? menuIcon : crossIcon"
+    ></ng-container>
+    <span class="state-btn__touch"></span>
+  </button>
+
+  <ul
+    class="menu"
+    [attr.aria-hidden]="state === MenuStates.COLLAPSED"
+    [@CanBeExpand]="state"
+  >
+    <li><a href="" class="menu__link">Features</a></li>
+    <li><a href="" class="menu__link">FAQ</a></li>
+    <li><a href="" class="menu__link">Contacts</a></li>
+    <li>
+      <a href="" class="btn menu__btn">Dashboard</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="backdrop" [@CanBeExpand]="_state" (click)="changeState()"></div>
+
+<ng-template #crossIcon>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+  >
+    <path
+      d="M24 8L8 24M8 8L24 24"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</ng-template>
+
+<ng-template #menuIcon>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+  >
+    <path
+      d="M4 16H28M4 8H28M12 24H28"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</ng-template>

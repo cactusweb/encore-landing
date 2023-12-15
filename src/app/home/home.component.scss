@@ -1,0 +1,17 @@
+@mixin PaddingX {
+  @apply tw-px-20 lg:tw-px-10 md:tw-px-4;
+}
+
+header {
+  @apply tw-h-screen tw-grid tw-grid-rows-[auto_1fr] tw-items-center;
+  @apply tw-py-10 md:tw-py-6 tw-box-border;
+  @apply tw-bg-cover tw-bg-center;
+  @include PaddingX();
+  background-image: url("/assets/bg.png");
+}
+
+main {
+  @apply tw-grid tw-gap-36 md:tw-gap-[120px];
+  @include PaddingX();
+  grid-template-rows: 82vh auto auto;
+}

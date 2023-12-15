@@ -1,0 +1,26 @@
+.features {
+  @apply tw-grid tw-gap-x-10 tw-gap-y-20 md:tw-gap-[60px];
+  @media screen and (min-width: 769px) {
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  }
+}
+
+.card {
+  @apply tw-grid tw-gap-6 tw-content-start tw-max-w-md tw-w-full tw-justify-self-center;
+
+  &__preview {
+    @apply tw-w-full;
+  }
+
+  &__info {
+    @apply tw-grid tw-gap-4;
+  }
+
+  &__title {
+    @apply tw-text-primary tw-text-xl md:tw-text-lg tw-leading-none tw-font-medium;
+  }
+
+  &__description {
+    @apply tw-text-base tw-text-[15px] tw-leading-none tw-font-normal;
+  }
+}

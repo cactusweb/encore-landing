@@ -1,0 +1,25 @@
+<section class="home-block">
+  <h3 class="home-block__title">Service features</h3>
+
+  <div class="features">
+    <div
+      class="card"
+      aria-label="Feature"
+      *ngFor="let feature of FEATURES; let i = index; trackByProperty"
+    >
+      <img [src]="imgUrl + (i + 1) + '.png'" alt="" class="card__preview" />
+
+      <div class="card__info">
+        <h4 class="card__title" aria-label="Title">{{ feature.title }}</h4>
+
+        <p
+          class="card__description"
+          aria-label="Description"
+          *ngFor="let desc of feature.descriptions"
+        >
+          {{ desc }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
