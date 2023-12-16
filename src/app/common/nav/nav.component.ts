@@ -8,7 +8,6 @@ import {
 import { CommonModule, Location, isPlatformServer } from '@angular/common';
 import {
   AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Inject,
