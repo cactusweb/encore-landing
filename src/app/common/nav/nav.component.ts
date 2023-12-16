@@ -113,7 +113,7 @@ export class NavComponent implements OnDestroy, AfterContentInit {
         tap(() => {
           this.location.replaceState('/');
         }),
-        debounceTime(100)
+        debounceTime(50)
       )
       .subscribe((res) => {
         document.querySelector(`#${res!}`)?.scrollIntoView({
