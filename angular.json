@@ -122,7 +122,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": ["/"]
+            "routes": ["/", "/user_agreement", "/privacy", "/refund_disput"]
           },
           "configurations": {
             "production": {
