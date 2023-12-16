@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformServer } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -6,7 +6,8 @@ import {
   Component,
   ElementRef,
   HostListener,
-  Output,
+  Inject,
+  PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
 
@@ -28,7 +29,7 @@ import {
         @apply tw-grid tw-justify-items-center;
       }
       img {
-        @apply tw-relative tw-bottom-[13vh] tw-w-[80%] tw-origin-bottom;
+        @apply tw-relative tw-bottom-[13vh] tw-w-[80%] tw-origin-bottom md:tw-bottom-[8vh] md:tw-w-full;
         transition: 0.1s;
       }
     `,
@@ -44,9 +45,16 @@ export class DsImageComponent implements AfterViewInit {
   readonly minScale = 1;
   readonly maxScale = 1.15;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   get imgWidth() {
+    if (isPlatformServer(this.platformId) || window.innerWidth < 768) {
+      return 1;
+    }
+
     const boundingRect = this.img?.nativeElement.getBoundingClientRect();
 
     if (!boundingRect || window.scrollY < 70) {
