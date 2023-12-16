@@ -1,5 +1,5 @@
 <nav>
-  <a routerLink="/" aria-label="Go to main">
+  <a href="/" aria-label="Go to main with reload">
     <img src="/assets/logo.svg" alt="Encore" class="tw-h-8" />
   </a>
 
@@ -14,16 +14,18 @@
     <span class="state-btn__touch"></span>
   </button>
 
-  <ul
-    class="menu"
-    [attr.aria-hidden]="state === MenuStates.COLLAPSED"
-    [@CanBeExpand]="state"
-  >
-    <li><a href="" class="menu__link">Features</a></li>
-    <li><a href="" class="menu__link">FAQ</a></li>
-    <li><a href="" class="menu__link">Contacts</a></li>
+  <ul class="menu" [attr.aria-hidden]="isMenuVisible" [@CanBeExpand]="_state">
+    <li *ngFor="let link of homeLinks">
+      <a
+        [href]="'#' + link.toLowerCase()"
+        class="menu__link"
+        (click)="onClickToLink(link, $event)"
+      >
+        {{ link }}
+      </a>
+    </li>
     <li>
-      <a href="" class="btn menu__btn">Dashboard</a>
+      <a [href]="dashboardLink" class="btn menu__btn">Dashboard</a>
     </li>
   </ul>
 </nav>

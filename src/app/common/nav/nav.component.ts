@@ -5,14 +5,18 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { CommonModule, isPlatformServer } from '@angular/common';
+import { CommonModule, Location, isPlatformServer } from '@angular/common';
 import {
+  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Inject,
+  OnDestroy,
   PLATFORM_ID,
 } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Subject, debounceTime, filter, takeUntil, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 enum MenuStates {
@@ -52,20 +56,38 @@ enum MenuStates {
     ]),
   ],
 })
-export class NavComponent {
+export class NavComponent implements OnDestroy, AfterContentInit {
   readonly dashboardLink = environment.dashURL;
 
   readonly MenuStates = MenuStates;
 
+  readonly homeLinks = ['Features', 'FAQ', 'Contacts'];
+
   _state = MenuStates.COLLAPSED;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  private readonly destroyed$ = new Subject<void>();
 
-  get state() {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private activedRoute: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {}
+
+  get isMenuVisible() {
     if (isPlatformServer(this.platformId) || window.innerWidth > 768) {
-      return MenuStates.EXPANDED;
+      return true;
     }
-    return this._state;
+    return this._state === MenuStates.EXPANDED;
+  }
+
+  ngAfterContentInit(): void {
+    this.scrollTo();
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 
   changeState() {
@@ -76,5 +98,28 @@ export class NavComponent {
       this._state = MenuStates.COLLAPSED;
       document.body.style.overflow = 'auto';
     }
+  }
+
+  onClickToLink(blockId: string, event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/'], { fragment: blockId.toLowerCase() });
+  }
+
+  private scrollTo() {
+    this.activedRoute.fragment
+      .pipe(
+        takeUntil(this.destroyed$),
+        filter((res) => !!res),
+        tap(() => {
+          this.location.replaceState('/');
+        }),
+        debounceTime(100)
+      )
+      .subscribe((res) => {
+        document.querySelector(`#${res!}`)?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      });
   }
 }

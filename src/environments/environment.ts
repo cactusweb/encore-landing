@@ -1,4 +1,4 @@
 export const environment = {
-    siteURL: 'https://encore.io',
-    dashURL: 'https://dash.encore.io',
-}
+  siteURL: 'https://encoreio.com',
+  dashURL: 'https://dash.encoreio.com',
+};
