@@ -102,6 +102,10 @@ export class NavComponent implements OnDestroy, AfterContentInit {
 
   onClickToLink(blockId: string, event: Event) {
     event.preventDefault();
+    if (this.state === MenuStates.EXPANDED) {
+      this.state = MenuStates.COLLAPSED;
+      document.body.style.overflow = 'auto';
+    }
     this.router.navigate(['/'], { fragment: blockId.toLowerCase() });
   }
 
