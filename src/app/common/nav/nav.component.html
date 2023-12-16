@@ -9,12 +9,12 @@
     (click)="changeState()"
   >
     <ng-container
-      *ngTemplateOutlet="_state === MenuStates.COLLAPSED ? menuIcon : crossIcon"
+      *ngTemplateOutlet="state === MenuStates.COLLAPSED ? menuIcon : crossIcon"
     ></ng-container>
     <span class="state-btn__touch"></span>
   </button>
 
-  <ul class="menu" [attr.aria-hidden]="isMenuVisible" [@CanBeExpand]="_state">
+  <ul class="menu" [attr.aria-hidden]="!isMenuVisible" [@CanBeExpand]="state">
     <li *ngFor="let link of homeLinks">
       <a
         [href]="'#' + link.toLowerCase()"
@@ -30,7 +30,7 @@
   </ul>
 </nav>
 
-<div class="backdrop" [@CanBeExpand]="_state" (click)="changeState()"></div>
+<div class="backdrop" [@CanBeExpand]="state" (click)="changeState()"></div>
 
 <ng-template #crossIcon>
   <svg

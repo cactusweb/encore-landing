@@ -63,7 +63,7 @@ export class NavComponent implements OnDestroy, AfterContentInit {
 
   readonly homeLinks = ['Features', 'FAQ', 'Contacts'];
 
-  _state = MenuStates.COLLAPSED;
+  state = MenuStates.COLLAPSED;
 
   private readonly destroyed$ = new Subject<void>();
 
@@ -78,7 +78,7 @@ export class NavComponent implements OnDestroy, AfterContentInit {
     if (isPlatformServer(this.platformId) || window.innerWidth > 768) {
       return true;
     }
-    return this._state === MenuStates.EXPANDED;
+    return this.state === MenuStates.EXPANDED;
   }
 
   ngAfterContentInit(): void {
@@ -91,11 +91,11 @@ export class NavComponent implements OnDestroy, AfterContentInit {
   }
 
   changeState() {
-    if (this._state === MenuStates.COLLAPSED) {
-      this._state = MenuStates.EXPANDED;
+    if (this.state === MenuStates.COLLAPSED) {
+      this.state = MenuStates.EXPANDED;
       document.body.style.overflow = 'hidden';
     } else {
-      this._state = MenuStates.COLLAPSED;
+      this.state = MenuStates.COLLAPSED;
       document.body.style.overflow = 'auto';
     }
   }

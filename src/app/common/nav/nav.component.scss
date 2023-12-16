@@ -5,6 +5,10 @@ nav {
 .menu {
   @apply tw-grid tw-grid-flow-col tw-gap-x-10 tw-gap-y-6 tw-items-center tw-justify-items-end;
 
+  @media screen and (min-width: 769px) {
+    height: auto !important;
+  }
+
   @apply md:tw-absolute tw-bottom-0 md:tw-translate-y-full md:tw-grid-flow-row md:tw-p-5 md:tw-overflow-hidden;
   @apply md:tw-w-full md:tw-bg-secondary;
 
