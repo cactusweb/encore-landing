@@ -11,7 +11,34 @@ body {
 }
 
 * {
-  font-family: "Mulish", sans-serif;
+  font-family: "Stapel";
+}
+
+@font-face {
+  font-family: "Stapel";
+  src: url("/assets/font/stapel-medium.woff2") format("woff2"),
+    url("/assets/font/stapel-medium.woff") format("woff"),
+    url("/assets/font/stapel-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Stapel";
+  src: url("/assets/font/stapel-regular.woff2") format("woff2"),
+    url("/assets/font/stapel-regular.woff") format("woff")
+      url("/assets/font/stapel-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Stapel";
+  src: url("/assets/font/stapel-bold.woff2") format("woff2"),
+    url("/assets/font/stapel-bold.woff") format("woff")
+      url("/assets/font/stapel-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
 }
 
 .btn {
