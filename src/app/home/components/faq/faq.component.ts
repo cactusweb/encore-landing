@@ -13,7 +13,7 @@ import { FAQS, Faq } from './consts/consts';
 })
 export class FaqComponent {
   readonly FAQS = FAQS;
-  
+
   trackByProperty(_: number, item: Faq) {
     return item.answer;
   }

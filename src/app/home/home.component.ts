@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent } from '../common/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DsImageComponent } from './components/ds-image/ds-image.component';
 import { FeatureComponent } from './components/features/features.component';

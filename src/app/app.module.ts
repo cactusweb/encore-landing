@@ -14,6 +14,31 @@ const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () =>
       import('./home/home.component').then((c) => c.HomeComponent),
+    title: 'Encore',
+  },
+  {
+    path: 'user_agreement',
+    title: 'User agreement - Encore',
+    loadComponent: () =>
+      import('./user-agreement/user-agreement.component').then(
+        (c) => c.UserAgreementComponent
+      ),
+  },
+  {
+    path: 'privacy',
+    title: 'Privacy policy - Encore',
+    loadComponent: () =>
+      import('./privacy-policy/privacy-policy.component').then(
+        (c) => c.PrivacyPolicyComponent
+      ),
+  },
+  {
+    path: 'refund_dispute',
+    title: 'Refund and dispute policy - Encore',
+    loadComponent: () =>
+      import('./refund-dispute/refund-dispute.component').then(
+        (c) => c.RefuncDisputeComponent
+      ),
   },
   {
     path: '**',
@@ -26,7 +51,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
     FooterComponent,
   ],
   providers: [provideClientHydration()],

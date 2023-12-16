@@ -15,5 +15,5 @@
 }
 
 .btn-purchase {
-  @apply tw-bg-primary tw-text-secondary tw-w-60 hover:tw-bg-primary-hover;
+  @apply tw-bg-primary tw-text-secondary tw-w-60 md:tw-w-52 hover:tw-bg-primary-hover;
 }
