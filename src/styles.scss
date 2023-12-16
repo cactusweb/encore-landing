@@ -53,3 +53,21 @@ body {
     @apply tw-text-[32px] md:tw-text-[26px] tw-leading-none tw-font-bold tw-justify-self-center tw-text-white;
   }
 }
+
+::-webkit-scrollbar {
+  @apply tw-w-2 tw-h-2;
+  @apply md:tw-w-0 md:tw-h-0 lg:tw-w-0 lg:tw-h-0;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply tw-border-0 tw-bg-primary tw-rounded-full;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply tw-bg-primary;
+}
+
+::-webkit-scrollbar-track {
+  @apply tw-border-0 tw-bg-secondary;
+}
