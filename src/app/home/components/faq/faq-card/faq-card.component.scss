@@ -11,7 +11,7 @@
   }
 
   &__btn {
-    @apply tw-h-10 tw-w-10 tw-rounded tw-bg-[#383D44] hover:tw-bg-[#484F57] tw-text-primary;
+    @apply tw-h-10 tw-w-10 tw-rounded tw-bg-[#383D44] tw-text-primary;
     @apply tw-flex tw-items-center tw-justify-center tw-relative;
     transition: 0.2s;
 
@@ -30,6 +30,10 @@
     &_expanded::after {
       @apply tw-rotate-180;
     }
+  }
+
+  &:hover &__btn {
+    @apply tw-bg-[#484F57];
   }
 
   &__description {
