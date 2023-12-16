@@ -5,8 +5,14 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule, isPlatformServer } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 enum MenuStates {
@@ -19,7 +25,7 @@ enum MenuStates {
   templateUrl: `./nav.component.html`,
   styleUrls: ['./nav.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('CanBeExpand', [
@@ -53,8 +59,10 @@ export class NavComponent {
 
   _state = MenuStates.COLLAPSED;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   get state() {
-    if (window.innerWidth > 768) {
+    if (isPlatformServer(this.platformId) || window.innerWidth > 768) {
       return MenuStates.EXPANDED;
     }
     return this._state;
