@@ -7,7 +7,7 @@
 
 body {
   @apply tw-text-white;
-  @apply tw-bg-secondary tw-pb-8;
+  @apply tw-bg-secondary tw-pb-20;
 }
 
 * {
@@ -63,12 +63,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply tw-border-0 tw-bg-primary tw-rounded-full;
+  @apply tw-border-0 tw-bg-primary hover:tw-bg-primary-hover tw-rounded-full;
   transition: 0.2s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply tw-bg-primary;
 }
 
 ::-webkit-scrollbar-track {

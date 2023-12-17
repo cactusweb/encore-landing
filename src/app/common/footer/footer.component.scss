@@ -1,13 +1,9 @@
 footer {
-  @apply tw-grid tw-justify-between md:tw-justify-center md:tw-grid-flow-row tw-gap-y-12 tw-gap-x-5 tw-items-center;
-  @apply lg:tw-items-start;
-  grid-template-columns: 1fr auto 1fr;
-  @apply md:tw-grid-cols-1;
-  @apply tw-px-20 lg:tw-px-10 md:tw-px-4;
-}
+  @apply tw-grid tw-justify-between  tw-gap-y-4 tw-gap-x-5 tw-items-center;
+  grid-template-columns: repeat(2, auto);
 
-.branding {
-  @apply tw-grid tw-content-between tw-gap-5 md:tw-justify-items-center md:tw-justify-center;
+  @apply md:tw-justify-center md:tw-justify-items-center md:tw-grid-cols-1 md:tw-gap-y-12;
+  @apply tw-px-20 lg:tw-px-10 md:tw-px-4;
 }
 
 // .links-container {
@@ -15,8 +11,8 @@ footer {
 // }
 
 .links {
-  @apply tw-grid tw-gap-6 tw-grid-flow-col tw-justify-center;
-  @apply lg:tw-grid-flow-row md:tw-grid-flow-row tw-justify-items-center;
+  @apply tw-grid tw-gap-4 tw-grid-flow-col tw-justify-center;
+  @apply md:tw-grid-flow-row tw-justify-items-center;
 
   a {
     @apply tw-text-[#B8B8B8] hover:tw-text-white;
@@ -30,13 +26,17 @@ a {
 }
 
 .designed-by {
-  @apply tw-col-start-1 tw-col-end-4 tw-justify-self-center;
-  @apply md:tw-col-start-1 md:tw-col-end-2 tw-text-[#B8B8B8];
+  @apply tw-text-[#B8B8B8] md:tw-row-start-4;
   a {
     text-decoration: none;
   }
 }
 
 .contact-link {
-  @apply tw-justify-self-end md:tw-justify-self-center md:tw-row-start-2 tw-text-[#B8B8B8];
+  @apply tw-justify-end md:tw-justify-center tw-items-center tw-justify-items-center;
+  @apply tw-grid tw-gap-1;
+  @apply tw-grid-flow-col md:tw-grid-flow-row;
+  span {
+    @apply tw-text-[#B8B8B8];
+  }
 }
