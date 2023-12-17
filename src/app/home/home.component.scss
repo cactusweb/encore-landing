@@ -7,7 +7,7 @@ header {
   @apply tw-py-10 md:tw-py-6 tw-box-border;
   @apply tw-bg-cover tw-bg-center;
   @include PaddingX();
-  background-image: url("/assets/bg.png");
+  background-image: url("/assets/bg.webp");
 }
 
 main {

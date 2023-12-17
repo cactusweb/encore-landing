@@ -16,7 +16,7 @@ import {
   template: `
     <section>
       <img
-        src="/assets/home/main.png"
+        src="/assets/home/main.webp"
         alt="Encore has discord server for support"
         [style.transform]="'scale(' + imgWidth + ')'"
         #img
