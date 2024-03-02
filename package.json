@@ -10,7 +10,8 @@
     "dev:ssr": "ng run Encore2:serve-ssr",
     "serve:ssr": "node dist/Encore2/server/main.js",
     "build:ssr": "ng build && ng run Encore2:server",
-    "prerender": "ng run Encore2:prerender"
+    "prerender": "ng run Encore2:prerender",
+    "deploy": "npm run prerender && pm2 delete encoreio && pm2 start --name 'encoreio' -- run 'server:ssr'"
   },
   "private": true,
   "dependencies": {
