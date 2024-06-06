@@ -9,5 +9,5 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  readonly puchaseLink = 'https://buy.stripe.com/fZe5kR04B83X50s7wz';
+  readonly puchaseLink = environment.dashURL + '/purchase';
 }
