@@ -11,34 +11,28 @@ body {
 }
 
 * {
-  font-family: "Stapel";
+  font-family: "BertSans";
 }
 
 @font-face {
-  font-family: "Stapel";
-  src: url("/assets/font/stapel-medium.woff2") format("woff2"),
-    url("/assets/font/stapel-medium.woff") format("woff"),
-    url("/assets/font/stapel-medium.otf") format("opentype");
+  font-family: "BertSans";
+  src: url("/assets/font/bertsans-medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Stapel";
-  src: url("/assets/font/stapel-regular.woff2") format("woff2"),
-    url("/assets/font/stapel-regular.woff") format("woff")
-      url("/assets/font/stapel-regular.otf") format("opentype");
+  font-family: "BertSans";
+  src: url("/assets/font/bertsans-regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Stapel";
-  src: url("/assets/font/stapel-bold.woff2") format("woff2"),
-    url("/assets/font/stapel-bold.woff") format("woff")
-      url("/assets/font/stapel-bold.otf") format("opentype");
+  font-family: "BertSans";
+  src: url("/assets/font/bertsans-bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
